@@ -37,7 +37,8 @@ class Database {
         if (null == self::$conexion) {
             try {
 
-                self::$conexion = new PDO("host=" . self::$dbHost . " " . "port=" . self::$dbPort . " " . "dbname=" . self::$dbName . " " . "user=" . self::$dbUsername . " " . "password=" . self::$dbUserPassword . " " . "sslmode=require");
+                //self::$conexion = new PDO("host=" . self::$dbHost . " " . "port=" . self::$dbPort . " " . "dbname=" . self::$dbName . " " . "user=" . self::$dbUsername . " " . "password=" . self::$dbUserPassword . " " . "sslmode=require");
+                self::$conexion = new PDO("pgsql:host=" . self::$dbHost . ";port=5432;dbname=" . self::$dbName . ";user=" . self::$dbUsername . ";password=" . self::$dbUserPassword . ";sslmode=require");
             } catch (PDOException $e) {
                 die($e->getMessage());
             }

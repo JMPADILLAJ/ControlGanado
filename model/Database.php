@@ -14,6 +14,7 @@ class Database {
     private static     $dbHost = 'hacienda.postgres.database.azure.com';
      private static    $dbUsername = 'jpadillaj@hacienda';
      private static    $dbUserPassword = 'infantLobin081289';
+      private static    $dbPort = '5432';
     private static $conexion = null;
 
     /**
@@ -37,8 +38,10 @@ class Database {
             try {
                
                     
-                    
-    self::$conexion = new PDO("host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword, "sslmode=required");
+   
+   
+   
+    self::$conexion = new PDO("host=" . self::$dbHost . " " . "port=" . self::$dbPort . " " . "dbname=" . self::$dbName . " " . "user=" . self::$dbUsername . " " . "password=" . self::$dbUserPassword . " " . "ssmode=required");
 
                     
                

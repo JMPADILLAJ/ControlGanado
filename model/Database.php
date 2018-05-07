@@ -28,9 +28,9 @@ class Database {
         // Una sola conexion para toda la aplicacion (singleton):
         
          $dbName = 'hacienda';
-         $dbHost = 'localhost';
-         $dbUsername = 'postgres';
-         $dbUserPassword = '081289';
+         $dbHost = 'hacienda.postgres.database.azure.com';
+         $dbUsername = 'jpadillaj@hacienda';
+         $dbUserPassword = 'infantLobin081289';
         
         if (null == self::$conexion) {
             try {

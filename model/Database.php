@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Clase utilitaria que maneja la conexion/desconexion a la base de datos
  * mediante las funciones PDO (PHP Data Objects).
@@ -8,13 +9,12 @@
 class Database {
 
     //Propiedades estaticas con la informacion de la conexion (DSN):
-   
     //Propiedad para control de la conexion:
-   private static $dbName = 'hacienda';
-    private static     $dbHost = 'hacienda.postgres.database.azure.com';
-     private static    $dbUsername = 'jpadillaj@hacienda';
-     private static    $dbUserPassword = 'infantLobin081289';
-      private static    $dbPort = '5432';
+    private static $dbName = 'hacienda';
+    private static $dbHost = 'hacienda.postgres.database.azure.com';
+    private static $dbUsername = 'jpadillaj@hacienda';
+    private static $dbUserPassword = 'infantLobin081289';
+    private static $dbPort = '5432';
     private static $conexion = null;
 
     /**
@@ -31,20 +31,13 @@ class Database {
      */
     public static function connect() {
         // Una sola conexion para toda la aplicacion (singleton):
-        
-         
-        
+
+
+
         if (null == self::$conexion) {
             try {
-               
-                    
-   
-   
-   
-    self::$conexion = new PDO("host=" . self::$dbHost . " " . "port=" . self::$dbPort . " " . "dbname=" . self::$dbName . " " . "user=" . self::$dbUsername . " " . "password=" . self::$dbUserPassword . " " . "ssmode=required");
 
-                    
-               
+                self::$conexion = new PDO("host=" . self::$dbHost . " " . "port=" . self::$dbPort . " " . "dbname=" . self::$dbName . " " . "user=" . self::$dbUsername . " " . "password=" . self::$dbUserPassword . " " . "sslmode=require");
             } catch (PDOException $e) {
                 die($e->getMessage());
             }

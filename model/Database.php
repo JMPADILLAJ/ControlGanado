@@ -10,6 +10,10 @@ class Database {
     //Propiedades estaticas con la informacion de la conexion (DSN):
    
     //Propiedad para control de la conexion:
+   private static $dbName = 'hacienda';
+    private static     $dbHost = 'hacienda.postgres.database.azure.com';
+     private static    $dbUsername = 'jpadillaj@hacienda';
+     private static    $dbUserPassword = 'infantLobin081289';
     private static $conexion = null;
 
     /**
@@ -27,15 +31,16 @@ class Database {
     public static function connect() {
         // Una sola conexion para toda la aplicacion (singleton):
         
-         $dbName = 'hacienda';
-         $dbHost = 'hacienda.postgres.database.azure.com';
-         $dbUsername = 'jpadillaj@hacienda';
-         $dbUserPassword = 'infantLobin081289';
+         
         
         if (null == self::$conexion) {
             try {
-                self::$conexion = new PDO ("host={$dbHost} port=5432 dbname={$dbName} user={$dbUsername} 
-                    password={$dbUserPassword} sslmode=required");
+               
+                    
+                    
+    self::$conexion = new PDO("host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword, "sslmode=required");
+
+                    
                
             } catch (PDOException $e) {
                 die($e->getMessage());

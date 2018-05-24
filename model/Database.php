@@ -11,10 +11,10 @@ class Database {
     //Propiedades estaticas con la informacion de la conexion (DSN):
     //Propiedad para control de la conexion:
     private static $dbName = 'hacienda';
-    private static $dbHost = 'hacienda.mysql.database.azure.com';
-    private static $dbUsername = 'wdsierra@hacienda';
-    private static $dbUserPassword = 'Universidad2018';
-    private static $dbPort = '3306';
+    private static $dbHost = 'hacienda.postgres.database.azure.com';
+    private static $dbUsername = 'jpadillaj@hacienda';
+    private static $dbUserPassword = 'infantLobin081289';
+    private static $dbPort = '5432';
     private static $conexion = null;
     /**
      * No se permite instanciar esta clase, se utilizan sus elementos
@@ -32,9 +32,10 @@ class Database {
 
         if (null == self::$conexion) {
             try {
-//$con=mysqli_init(); mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL); mysqli_real_connect($con, "{host_name}", "{your_username}", {your_password}, {your_database}, 3306);
+
                 //self::$conexion = new PDO("host=" . self::$dbHost . " " . "port=" . self::$dbPort . " " . "dbname=" . self::$dbName . " " . "user=" . self::$dbUsername . " " . "password=" . self::$dbUserPassword . " " . "sslmode=require");
-                self::$conexion = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword, 3306);
+                self::$conexion = new PDO("pgsql:host=" . self::$dbHost . ";port=5432;dbname=" . self::$dbName . ";user=" 
+                        . self::$dbUsername . ";password=" . self::$dbUserPassword . ";sslmode=require");
                 
             } catch (PDOException $e) {
                 die($e->getMessage());

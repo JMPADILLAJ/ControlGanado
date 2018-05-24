@@ -12,8 +12,8 @@ class Database {
     //Propiedad para control de la conexion:
     private static $dbName = 'hacienda';
     private static $dbHost = 'hacienda.postgres.database.azure.com';
-    private static $dbUsername = 'jpadillaj@hacienda';
-    private static $dbUserPassword = 'infantLobin081289';
+    private static $dbUsername = 'wdsierra@hacienda';
+    private static $dbUserPassword = 'Universidad2018';
     private static $dbPort = '5432';
     private static $conexion = null;
     /**
